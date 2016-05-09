@@ -1,5 +1,6 @@
 import random
 import sys
+
 # int i = random.randint( 0, 9 )
 
 def secrets():
