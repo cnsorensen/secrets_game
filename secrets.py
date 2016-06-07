@@ -19,19 +19,23 @@ def secrets( count ):
 
     # try to cast the guess as an int
     try:
-        guess = int( guess )
+        guess_int = int( guess )
     # if it's not an int, notify user and start over
     except:
         print 'Invalid guess ( integer )'
         secrets( count )
 
-    if guess == num_int:
+    # check to see if the guess is correct
+    match_flag = True
+    for i in range( 0, 4, 1 ):
+        if num_str[i] != guess[i]:
+            match_flag = False
+            break
+
+    if match_flag == True:
         print 'Answer: ' + str( num_int )
         print 'YOU WIN in ' + str( count ) + ' guesses!!'
         sys.exit()
-
-    # convert it back to a string to be able to iterate through it
-    guess = str( guess )
 
     # what is to be printed to the string
     # initialize to '_' for no match at all
